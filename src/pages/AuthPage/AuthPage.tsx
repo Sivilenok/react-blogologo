@@ -1,4 +1,4 @@
-import Auth from "components/Auth/Auth";
+import { Auth } from "components";
 import { StyledAuthPage } from "./styles";
 
 export const AuthPage = () => {

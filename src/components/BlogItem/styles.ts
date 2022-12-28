@@ -5,13 +5,12 @@ import { Color } from "../../ui/colors";
 const StyledBlogImg = styled.img`
   width: 100%;
   height: 208px;
-  border-radius: 16px;
+  border-radius: 16px 16px 0 0;
 `;
 
 const StyledBlogItem = styled.div`
   width: 352px;
   height: 388px;
-
   margin: 50px;
   border-radius: 16px 16px 0 0;
   background: ${Color.WHITE};
