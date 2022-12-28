@@ -3,7 +3,7 @@ import { Color } from "../../ui/colors";
 
 export const StyledSearch = styled.input`
   padding: 5px;
-  width: 70%;
+  width: 100%;
     ::placeholder {
       color: ${Color.SECONDARY};
     }

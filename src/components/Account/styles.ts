@@ -3,8 +3,9 @@ import styled, { css } from "styled-components";
 const StyledAccount = styled.div`
    display: flex;
    justify-content: flex-start;
-   justify-content: space-between;
+   align-items: center;
    height: 100%;
+   padding: 0 20px;
 `;
 
  const StyledButton  = styled.div`

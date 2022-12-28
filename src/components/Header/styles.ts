@@ -20,8 +20,15 @@ const StyledSearchWrapper = styled.div`
 
 `;
 
+const StyledIconWrapper = styled.div`
+  position: absolute;
+  top: 25px;
+  right: 25px;
+`;
+
 
 export {
   StyledHeader,
   StyledSearchWrapper,
+  StyledIconWrapper,
 };

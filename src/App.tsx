@@ -1,16 +1,8 @@
-import { Footer } from "./components/Footer/Footer";
-import { Header } from "./components/Header/Header";
-import { Wrapper } from "./wrapper";
-import { Blog } from "./components/Blog/Blog";
-import { Articles } from "./components/Articles/Articles";
+import { RouterProvider, Router } from "react-router";
+import { router } from "router";
 
 export const App = () => {
   return (
-      <Wrapper>
-        <Header />
-        <Blog />
-        <Articles />
-        <Footer />
-      </Wrapper>
+      <RouterProvider router={router} />
   );
 };

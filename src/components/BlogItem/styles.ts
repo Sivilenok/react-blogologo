@@ -12,7 +12,7 @@ const StyledBlogItem = styled.div`
   width: 352px;
   height: 388px;
   margin: 50px;
-  border-radius: 16px 16px 0 0;
+  border-radius: 16px;
   background: ${Color.WHITE};
 `;
 

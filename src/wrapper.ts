@@ -2,6 +2,6 @@ import styled from "styled-components";
 import { Color } from "./ui/colors";
 
 export const Wrapper = styled.div`
-  width: 100%;
+  max-width: 100vw;
   background-color: ${Color.FOOTER};
 `;

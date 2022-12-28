@@ -16,8 +16,6 @@ const StyledBlogIcon = styled(BlogIcon)`
 `;
 
 const StyledCrossIcon = styled(CrossIcon)`
-  right: 0;
-  top: 25px;
 `;
 
 const StyledLogoIcon = styled(LogoIcon)`
@@ -35,7 +33,9 @@ const StyledUserIcon = styled(UserIcon)`
   width: 48px;
 `;
 
-const StyledVectorIcon = styled(VectorIcon)``;
+const StyledVectorIcon = styled(VectorIcon)`
+  width: 48px;
+`;
 
 export {
   StyledBlogIcon,
