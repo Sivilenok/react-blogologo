@@ -1,18 +1,18 @@
 import { useEffect, useState } from "react"
-import { blogsAPI } from "../../services/restBlogsAPI";
-import { IBlogsAPI } from "../../types/types";
+import { IArticleAPI } from "types/types";
+import { articleAPI } from "../../services/restBlogsAPI";
 import { BlogItem } from "../BlogItem/BlogItem";
 import { StyledArticles } from "./styles";
 
 interface IProps {
-  articles: IBlogsAPI[];
+  articles: IArticleAPI[];
 }
 
 export const Articles = () => {
-  const [articles, setArticles] = useState<IBlogsAPI[]>([]);
+  const [articles, setArticles] = useState<IArticleAPI[]>([]);
 
   useEffect(() => {
-    blogsAPI.getArticles().then(setArticles);
+    articleAPI.getArticles().then(setArticles);
   }, []);
   return (
     <StyledArticles>

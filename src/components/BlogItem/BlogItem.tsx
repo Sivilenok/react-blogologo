@@ -1,4 +1,4 @@
-import { IBlogsAPI } from "../../types/types";
+import { IArticleAPI } from "../../types/types";
 import {
   StyledBlogImg,
   StyledBlogItem,
@@ -12,7 +12,7 @@ export const BlogItem = ({
   newsSite,
   publishedAt,
   title,
-}: IBlogsAPI) => {
+}: IArticleAPI) => {
   return (
     <StyledBlogItem>
         <StyledBlogImg src={imageUrl} alt={newsSite} />

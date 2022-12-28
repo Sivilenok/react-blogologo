@@ -1,9 +1,8 @@
 import axios from "axios";
 import { Key } from "react";
-import { IBlogsAPI } from "../types/types";
+import { IArticleAPI } from "types/types";
 
-
-class restBlogsAPI {
+class restArticleAPI {
   private readonly BASE_URL = "https://api.spaceflightnewsapi.net/v3/";
   private readonly ENDPOINT = {
     blogs: "blogs",
@@ -17,31 +16,31 @@ class restBlogsAPI {
 
   public async getArticles() {
 
-    const { data } = await this.API.get<IBlogsAPI[]>(this.ENDPOINT.articles);
+    const { data } = await this.API.get<IArticleAPI[]>(this.ENDPOINT.articles);
 
     return data;
   };
 
   public async getArticlesById(id: number) {
 
-    const { data } = await this.API.get<IBlogsAPI[]>(`${this.ENDPOINT.articles}/${id}`);
+    const { data } = await this.API.get<IArticleAPI[]>(`${this.ENDPOINT.articles}/${id}`);
 
     return data;
   }
 
   public async getBlogs() {
 
-    const { data } = await this.API.get<IBlogsAPI[]>(this.ENDPOINT.blogs);
+    const { data } = await this.API.get<IArticleAPI[]>(this.ENDPOINT.blogs);
 
     return data;
   }
 
   public async getBlogsById(id: number) {
 
-    const { data } = await this.API.get<IBlogsAPI[]>(`${this.ENDPOINT.blogs}/${id}`);
+    const { data } = await this.API.get<IArticleAPI[]>(`${this.ENDPOINT.blogs}/${id}`);
 
     return data;
   }
 }; 
 
-export const blogsAPI = new restBlogsAPI();
+export const articleAPI = new restArticleAPI();

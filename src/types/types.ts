@@ -1,6 +1,6 @@
 import { store } from "../store";
 
-export interface IBlogsAPI {
+export interface IArticleAPI {
     imageUrl: string;
     publishedAt: string;
     title: string;
@@ -12,8 +12,8 @@ export interface IBlogsAPI {
     code: number;
 };
 
-export interface IBlogs {
-    articles: IBlogsAPI[];
+export interface IArticle {
+    articles: IArticleAPI;
 };
 
 export type RootState = ReturnType<typeof store.getState>;

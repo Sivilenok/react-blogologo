@@ -1,6 +1,6 @@
 import { StyledBlog } from "./styles";
-import Tabs from "../Tabs/Tabs";
 import { StyledBlogIcon } from "assets/styles";
+import Tabs from "components/Tabs/Tabs";
 
 export const Blog = () => {
   return (

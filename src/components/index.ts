@@ -6,4 +6,9 @@ export * from "./BlogItem/BlogItem";
 export * from "./Search/Search";
 export * from "./ThemeButton/ThemeButton";
 export * from "./Blog/Blog";
+export * from "./Tabs/Tabs";
+export * from "./Auth/Auth";
+export * from "./Layout/Layout";
+
+
 
