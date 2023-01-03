@@ -2,13 +2,13 @@ import styled from "styled-components";
 import { typography } from "../../ui";
 import { Color } from "../../ui/colors";
 
-const StyledBlogImg = styled.img`
+const StyledArticleImg = styled.img`
   width: 100%;
   height: 208px;
   border-radius: 16px 16px 0 0;
 `;
 
-const StyledBlogItem = styled.div`
+const StyledArticleItem = styled.div`
   width: 352px;
   height: 388px;
   margin: 50px;
@@ -34,8 +34,8 @@ const StyledTitle = styled.div`
 
 export {
   StyledDescr,
-  StyledBlogItem,
-  StyledBlogImg,
+  StyledArticleItem,
+  StyledArticleImg,
   StyledDate,
-  StyledTitle,
+  StyledTitle
 };

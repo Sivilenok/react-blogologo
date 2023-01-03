@@ -1,25 +1,26 @@
-import { useEffect, useState } from "react"
-import { IArticleAPI } from "types/types";
-import { articleAPI } from "../../services/restBlogsAPI";
-import { BlogItem } from "../BlogItem/BlogItem";
+import { ArticleItem } from "components/ArticleItem/ArticleItem";
+import { FunctionComponent, useEffect } from "react";
+import { useAppDispatch, useAppSelector } from "store";
+import { fetchAllArticles } from "store/slices/articlesSlice/articlesSlice";
 import { StyledArticles } from "./styles";
 
-interface IProps {
-  articles: IArticleAPI[];
-}
-
-export const Articles = () => {
-  const [articles, setArticles] = useState<IArticleAPI[]>([]);
+export const Articles: FunctionComponent = () => {
+  const { results: articles, isLoading } = useAppSelector((state) => state.articles);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
-    articleAPI.getArticles().then(setArticles);
-  }, []);
+    dispatch(fetchAllArticles());
+  }, [dispatch]);
+
   return (
     <StyledArticles>
-       {articles?.map((item) => (
-        <BlogItem key={item.id} {...item} />
-       ))}
+      {isLoading
+        ? <div>Loading</div>
+        : (
+          articles?.map((item) => (
+            <ArticleItem key={item.id} article={item} />
+          ))
+        )}
     </StyledArticles>
   );
 };
-

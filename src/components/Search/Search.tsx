@@ -1,7 +1,7 @@
 import { StyledSearch } from "./styles";
 import { useDispatch } from "react-redux";
-import { setKeyword } from "../../store/searchSlice/searchSlice";
 import { ChangeEvent } from "react";
+import { setKeyword } from "store/slices/searchSlice/searchSlice";
 
 interface IProps {
   placeholder: string;
