@@ -1,15 +1,14 @@
-import { StyledUserIcon, StyledVectorIcon } from "assets/styles";
-import { StyledAccount } from "./styles";
+import { StyledUserIcon } from "assets/styles";
+import { StyledAccount, StyledAccountButton } from "./styles";
 
 export const Account = () => {
 
   return (
     <StyledAccount>
-      <StyledVectorIcon />
-      <button style={{display: "flex", alignItems: "center"}}>
+      <StyledAccountButton>
         <StyledUserIcon />
-        <span style={{whiteSpace: "nowrap", padding: "0 20px"}}>Sign in</span>
-      </button>
+        <span>Sign in</span>
+      </StyledAccountButton>
     </StyledAccount>
   );
 };

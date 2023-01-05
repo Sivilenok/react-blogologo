@@ -4,11 +4,13 @@ import { Color } from "../../ui/colors";
 export const StyledSearch = styled.input`
   padding: 5px;
   width: 100%;
-    ::placeholder {
-      color: ${Color.SECONDARY};
-    }
-    &:focus {
+  background: none;
+  ::placeholder {
+    color: ${Color.PRIMARY_TEXT};
+  }
+
+  &:focus {
     border-color: ${Color.PRIMARY};
-    box-shadow: 0px 0px 5px 0 ${Color.PRIMARY};
+    box-shadow: 0 0 5px 0 ${Color.PRIMARY};
   }
 `;

@@ -1,13 +1,13 @@
 import styled from "styled-components";
-import { typography } from "../../ui";
-import { Color } from "../../ui/colors";
+import { typography } from "ui";
+import { Color } from "ui/colors";
 
 export const Label = styled.label`
   display: flex;
   align-items: center;
   width: 35px;
   height: 20px;
-  background: ${Color.GRAY};
+  background: ${Color.PRIMARY_TEXT};
   position: relative;
   cursor: pointer;
   border-radius: 1.6rem;
@@ -33,7 +33,7 @@ export const Label = styled.label`
 `;
 
 export const StyledText = styled.div`
-  color: ${Color.GRAY};
+  color: ${Color.PRIMARY_TEXT};
   ${typography.b1}
 `;
 
@@ -62,4 +62,3 @@ export const StyledSwitch = styled.div`
     }
   }
 `;
-

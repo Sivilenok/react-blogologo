@@ -1,15 +1,11 @@
 import { ThemeButton } from "../ThemeButton/ThemeButton";
-import { StyledFooter, StyledRectangle, StyledText, StyledWrapper } from "./styles";
+import { StyledFooter, StyledText, StyledWrapper } from "./styles";
 
-export const Footer = () => {
-
-  return (
-    <StyledFooter>
-      <StyledRectangle />
-      <StyledWrapper>
-        <StyledText>©2022 Blogolog</StyledText>
-        <ThemeButton type="checkbox"/>
-      </StyledWrapper>
-    </StyledFooter>
-  );
-};
+export const Footer = () => (
+  <StyledFooter>
+    <StyledWrapper>
+      <StyledText>©2022 Blogolog</StyledText>
+      <ThemeButton type="checkbox"/>
+    </StyledWrapper>
+  </StyledFooter>
+);

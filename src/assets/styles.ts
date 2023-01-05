@@ -7,7 +7,6 @@ import {
   UserIcon,
   VectorIcon,
 } from "assets";
-import { Color } from "ui/colors";
 
 const StyledBlogIcon = styled(BlogIcon)`
   width: 123px;
@@ -26,7 +25,6 @@ const StyledLogoIcon = styled(LogoIcon)`
 
 const StyledSearchIcon = styled(SearchIcon)`
   width: 100%;
-  background-color: ${Color.COLOR_MAIN};
 `;
 
 const StyledUserIcon = styled(UserIcon)`

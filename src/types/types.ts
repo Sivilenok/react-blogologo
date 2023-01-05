@@ -4,15 +4,15 @@ export interface IArticleAPI {
   imageUrl: string;
   publishedAt: string;
   title: string;
-  id: string;
+  id: number;
   url: string;
   newsSite: string;
   summary: string;
-};
+}
 
 export interface IArticle {
   articles: IArticleAPI;
-};
+}
 
 export interface INewsAPI {
   id: string;

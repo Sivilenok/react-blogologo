@@ -1,11 +1,11 @@
 import { AuthPage } from "./AuthPage/AuthPage";
-import { DescrPage } from "./DescrPage/DescrPage";
-import { HomePage } from "./HomePage/HomePage";
+import { BlogEntryPage } from "./DescrPage/BlogEntryPage";
+import { BlogPage } from "./BlogPage/BlogPage";
 import { SearchPage } from "./SearchPage/SearchPage";
 
 export {
     AuthPage,
-    DescrPage,
-    HomePage,
+    BlogEntryPage,
+    BlogPage,
     SearchPage,
 };

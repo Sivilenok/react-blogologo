@@ -8,6 +8,8 @@ export enum Color {
     BLACK = "#323537",
     PRIMARY_TEXT = "var(--primary-text)",
     PRIMARY_BG = "var(--primary-bg)",
+    SECONDARY_BG = "var(--secondary-bg)",
+    BORDER = "var(--border)",
     FOOTER = "#F3F3F3",
     COLOR_MAIN = "rgba(49, 48, 55, 0.1)",
 }

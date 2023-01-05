@@ -1,16 +1,6 @@
 import { StyledButton } from "./styles";
+import { ButtonHTMLAttributes } from "react";
 
-type ButtonType = any
-
-interface IProps {
-  children: string;
-  type?: ButtonType;
-  buttonWidth?: string;
-  bgColor?: string;
-  buttonColor?: string;
-  brColor?: string;
-}
-
-export const Button = (props: IProps) => {
+export const Button = (props: ButtonHTMLAttributes<HTMLButtonElement>) => {
   return <StyledButton {...props}>{props.children}</StyledButton>;
 };

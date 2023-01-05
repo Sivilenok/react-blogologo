@@ -6,7 +6,7 @@ const StyledHeader = styled.div`
   align-items: center;
   max-width: 100%;
   height: 76px;
-  background-color: ${Color.WHITE};
+  background-color: ${Color.SECONDARY_BG};
   margin: 0;
   outline-color: ${Color.SECONDARY};
 `;
@@ -17,7 +17,6 @@ const StyledSearchWrapper = styled.div`
   height: 100%;
   position: relative;
   justify-content: space-between;
-
 `;
 
 const StyledIconWrapper = styled.div`

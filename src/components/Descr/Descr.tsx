@@ -1,31 +1,32 @@
 import { ArrowButton } from "components/ArrowButton/ArrowButton";
-import { StyledArticleImg, StyledDescr, StyledTitle } from "components/ArticleItem/styles";
+import { StyledBlogImg, StyledDescr, StyledTitle } from "components/BlogItem/styles";
+import { FunctionComponent } from "react";
 import { useNavigate } from "react-router";
-import { IArticleAPI } from "types/types";
+import { IArticleAPI, INewsAPI } from "types/types";
 import { StyledDescrText } from "./styles";
 
-interface IProps {
-  article: IArticleAPI;
+interface Props {
+  item: IArticleAPI|INewsAPI;
 }
 
-export const Descr = ({ article }: IProps) => {
+export const Descr: FunctionComponent<Props> = ({ item }) => {
   const navigate = useNavigate();
   const handleBack = () => {
     navigate(-1);
   };
-  const { title, imageUrl, summary, url} = article;
+  const { title, imageUrl, summary, url} = item;
 
   return (
     <div>
       <StyledTitle>{title}</StyledTitle>
       <StyledDescr>
-        <StyledArticleImg src={imageUrl} />
+        <StyledBlogImg src={imageUrl} />
         <StyledDescrText>{summary}</StyledDescrText>
 
         {/*<Link href={url} />*/}
 
-    </StyledDescr>
-    <ArrowButton />
+      </StyledDescr>
+      <ArrowButton />
     </div>
   );
 };

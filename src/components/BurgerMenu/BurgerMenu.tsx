@@ -1,10 +1,11 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, useEffect, useState } from "react";
 
 interface Props {
     isOpen: boolean;
 }
 
-export const BurgerMenu: FunctionComponent<Props> = ({ isOpen }) => {
+export const BurgerMenu: FunctionComponent<Props> = () => {
+
   return (
     <button>BurgerMenu</button>
   );
