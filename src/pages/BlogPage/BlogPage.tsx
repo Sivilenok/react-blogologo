@@ -42,6 +42,7 @@ export const BlogPage: FunctionComponent<Props> = ({ category }) => {
             News
           </Link>
         </StyledBlogButton>
+        <StyledBlogWrapper>
         <DateButtons />
         <Select
           options={sortOptions}
@@ -51,9 +52,13 @@ export const BlogPage: FunctionComponent<Props> = ({ category }) => {
               ...styles,
               backgroundColor: Color.SECONDARY_BG,
               border: "none",
+              width: 256,
+              marginTop: 50,
             }),
           }}
         />
+        </StyledBlogWrapper>
+        
         <StyledBlogList>
           {isLoading
             ? <div>Loading</div>

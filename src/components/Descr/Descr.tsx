@@ -14,7 +14,7 @@ export const Descr: FunctionComponent<Props> = ({ item }) => {
   const handleBack = () => {
     navigate(-1);
   };
-  const { title, imageUrl, summary, url} = item;
+  const { title, imageUrl, summary } = item;
 
   return (
     <div>
@@ -22,9 +22,6 @@ export const Descr: FunctionComponent<Props> = ({ item }) => {
       <StyledDescr>
         <StyledBlogImg src={imageUrl} />
         <StyledDescrText>{summary}</StyledDescrText>
-
-        {/*<Link href={url} />*/}
-
       </StyledDescr>
       <ArrowButton />
     </div>

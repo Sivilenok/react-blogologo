@@ -4,7 +4,7 @@ import { ChangeEvent } from "react";
 import { setKeyword } from "store/slices/searchSlice/searchSlice";
 
 interface IProps {
-  placeholder: string;
+  placeholder: string | undefined;
   type: string;
   value: string;
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;

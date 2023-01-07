@@ -30,3 +30,4 @@ export const StyledBlogList = styled.div`
   grid-template-columns: 1fr 1fr 1fr;
   gap: 15px;
 `;
+

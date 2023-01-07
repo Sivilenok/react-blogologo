@@ -1,4 +1,4 @@
-import { FunctionComponent, MouseEventHandler } from "react";
+import { FunctionComponent } from "react";
 import { Link } from "react-router-dom";
 import { IArticleAPI, INewsAPI } from "types/types";
 import {

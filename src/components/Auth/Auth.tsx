@@ -1,5 +1,8 @@
+import { Navigate, Outlet } from "react-router";
+import { ROUTE } from "router";
+import { getUser, useAppSelector } from "store"
+
 export const Auth = () => {
-  return (
-    <div>Autho</div>
-  )
-}
+  const { isAuth } = useAppSelector(getUser);
+  return isAuth ? <Outlet /> : <Navigate to={ROUTE.AUTH} />;
+};
