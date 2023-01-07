@@ -9,7 +9,7 @@ const StyledInput = styled.input`
   background-color: ${Color.WHITE};
   border: 2px solid transparent;
   border-radius: 10px;
-  color: ${Color.WHITE};
+  color: ${Color.BLACK};
   outline: none;
   &::placeholder {
     color: ${Color.PRIMARY};

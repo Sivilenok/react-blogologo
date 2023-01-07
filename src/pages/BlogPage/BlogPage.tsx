@@ -3,7 +3,7 @@ import BlogItem from "components/BlogItem/BlogItem";
 import { DateButtons } from "components/DateButtons/DateButtons";
 import { FunctionComponent, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Select from "react-select";
+import Select, {components} from "react-select";
 import { getBlog, useAppDispatch, useAppSelector } from "store";
 import { Category, fetchAllBlogEntries, Sort } from "store/slices/blogSlice/blogSlice";
 import { Color } from "ui/colors";
@@ -43,20 +43,57 @@ export const BlogPage: FunctionComponent<Props> = ({ category }) => {
           </Link>
         </StyledBlogButton>
         <StyledBlogWrapper>
-        <DateButtons />
-        <Select
-          options={sortOptions}
-          onChange={(option) => setSort(option?.value)}
-          styles={{
-            control: (styles) => ({
-              ...styles,
-              backgroundColor: Color.SECONDARY_BG,
-              border: "none",
-              width: 256,
-              marginTop: 50,
-            }),
-          }}
-        />
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+          <DateButtons />
+
+            <Select
+            options={sortOptions}
+            defaultValue={sortOptions[0]}
+            onChange={(option) => setSort(option?.value)}
+            styles={{
+              control: (styles) => ({
+                ...styles,
+                backgroundColor: Color.SECONDARY_BG,
+                border: "none",
+                width: 256,
+                height: "56px",
+                fontSize: "16px",
+              }),
+              valueContainer: (styles) => ({
+                ...styles,
+                height: "56px",
+                lineHeight: "24px",
+              }),
+              menu: (styles) => ({
+                ...styles,
+                lineHeight: "24px",
+                fontSize: "16px",
+                fontWeight: 500,
+              }),
+              indicatorsContainer: (styles) => ({
+                ...styles,
+                height: "56px",
+                fontSize: "16px",
+              }),
+              input: (styles) => ({
+                ...styles,
+                margin: 0,
+              }),
+            }}
+            components={{
+              SingleValue: ({ children, ...props }) => {
+                return (
+                  <components.SingleValue {...props}>
+                    <span style={{color: "#31303780"}}>Sort: </span>
+                    {children}
+                  </components.SingleValue>
+                );
+              },
+              IndicatorSeparator: () => null
+            }}
+          />
+          </div>
+          
         </StyledBlogWrapper>
         
         <StyledBlogList>

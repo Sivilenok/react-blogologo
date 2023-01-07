@@ -2,7 +2,6 @@ import { Button } from "components/Button/Button";
 import { InputWrapper, Label, StyledInput } from "components/Input/styles";
 import {
   createUserWithEmailAndPassword,
-  getAuth,
   updateCurrentUser,
   updateProfile,
 } from "firebase/auth";
@@ -11,6 +10,7 @@ import { useNavigate } from "react-router";
 import { useAppDispatch } from "store";
 import { setUser } from "store/slices/userSlice/userSlice";
 import { BodyForm } from "./styles";
+import { auth } from "../../firebase";
 
 interface ISignUp {
   email: string;
@@ -23,8 +23,7 @@ export const SignUp = () => {
   const dispatch = useAppDispatch();
   const handleSignIn = (userData: ISignUp) => {
     const { email, password, name } = userData;
-    const auth = getAuth();
-
+    console.log(userData);
     createUserWithEmailAndPassword(auth, email, password)
       .then(() => {
         dispatch(
@@ -63,18 +62,23 @@ export const SignUp = () => {
     <BodyForm onSubmit={handleSubmit(handleSignIn)}>
       <InputWrapper>
         <Label>name</Label>
-        <StyledInput type="text" placeholder="Your name" />
+        <StyledInput {...register("name")} type="text" placeholder="Your name" />
       </InputWrapper>
       <InputWrapper>
         <Label>email</Label>
+        <StyledInput {...register("email")} type="text" placeholder="Your email" />
       </InputWrapper>
       <InputWrapper>
         <Label>password</Label>
-        <StyledInput type="password" placeholder="Your password" />
+        <StyledInput {...register("password")} type="password" placeholder="Your password" />
       </InputWrapper>
       <InputWrapper>
         <Label>confirm password</Label>
-        <StyledInput type="password" placeholder="Your password" />
+        <StyledInput 
+          {...register("confirmPassword")} 
+          type="password" 
+          placeholder="Confirm your password" 
+        />
       </InputWrapper>
       <Button type="submit">Sign Up</Button>
     </BodyForm>

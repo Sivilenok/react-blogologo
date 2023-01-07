@@ -5,7 +5,8 @@ import { Color } from "ui/colors";
 export const StyledBlogImg = styled.img`
   width: 100%;
   height: 208px;
-  border-radius: 16px 16px 0 0;
+  background-color: black;
+  /* border-radius: 16px 16px 0 0; */
 `;
 
 export const StyledBlogItem = styled.div`
@@ -14,6 +15,7 @@ export const StyledBlogItem = styled.div`
   margin: 50px;
   border-radius: 16px;
   background: ${Color.SECONDARY_BG};
+  overflow: hidden;
 `;
 
 export const StyledDescr = styled.div`
