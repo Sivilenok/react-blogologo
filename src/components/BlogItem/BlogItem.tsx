@@ -2,11 +2,11 @@ import { FunctionComponent } from "react";
 import { Link } from "react-router-dom";
 import { IArticleAPI, INewsAPI } from "types/types";
 import {
+  StyledBlogDescr,
   StyledBlogImg,
   StyledBlogItem,
+  StyledBlogTitle,
   StyledDate,
-  StyledDescr,
-  StyledTitle,
 } from "./styles";
 
 interface Props {
@@ -19,10 +19,10 @@ const BlogItem: FunctionComponent<Props> = ({ item, linkTo }) => {
     <StyledBlogItem>
       <Link to={linkTo}>
         <StyledBlogImg src={item.imageUrl} alt={item.newsSite} />
-        <StyledDescr>
+        <StyledBlogDescr>
           <StyledDate>{new Date(item.publishedAt).toLocaleDateString()}</StyledDate>
-          <StyledTitle>{item.title}</StyledTitle>
-        </StyledDescr>
+          <StyledBlogTitle>{item.title}</StyledBlogTitle>
+        </StyledBlogDescr>
       </Link>
     </StyledBlogItem>
   );

@@ -6,7 +6,7 @@ export const StyledSearch = styled.input`
   width: 100%;
   background: none;
   ::placeholder {
-    color: ${Color.PRIMARY_TEXT};
+    color: ${Color.COLOR_MAIN};
   }
 
   &:focus {

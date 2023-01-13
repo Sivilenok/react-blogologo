@@ -1,19 +1,47 @@
-import { InputWrapper } from "components/Input/styles";
-import { useInput } from "hooks";
-import { useNavigate } from "react-router";
-import { Search, SearchButton } from "./styles";
+import { FunctionComponent, useEffect } from "react";
+import { StyledBlogIcon } from "assets/styles";
+import BlogItem from "components/BlogItem/BlogItem";
+import { useParams } from "react-router";
+import { getBlog, useAppDispatch, useAppSelector } from "store";
+import { Category, fetchAllBlogEntries } from "store/slices/blogSlice/blogSlice";
+import {
+  StyledBlog,
+  StyledBlogList,
+  StyledBlogWrapper,
+} from "pages/BlogPage/styles";
 
-export const SearchPage = () => {
-  const navigator = useNavigate();
-  const { value, onChange } = useInput();
-  const handleSearch = () => {
-    navigator(`search/${value}/1`);
-  };
+interface Props {
+  category: Category;
+}
+
+export const SearchPage: FunctionComponent<Props> = ({ category }) => {
+  const { query } = useParams();
+
+  const { results, isLoading } = useAppSelector(getBlog);
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(fetchAllBlogEntries({ category, contains: query }));
+  }, [dispatch, category, query]);
 
   return (
-    <InputWrapper>
-      <Search placeholder="Search" onChange={onChange} value={value} />
-      <SearchButton onClick={handleSearch} />
-    </InputWrapper>
-  )
+    <StyledBlog>
+      <StyledBlogIcon />
+      <StyledBlogWrapper>
+        <StyledBlogList>
+          {isLoading ? (
+            <div>Loading</div>
+          ) : (
+            results?.map((item) => (
+              <BlogItem
+                key={item.id}
+                item={item}
+                linkTo={`/${category}/${item.id}`}
+              />
+            ))
+          )}
+        </StyledBlogList>
+      </StyledBlogWrapper>
+    </StyledBlog>
+  );
 };

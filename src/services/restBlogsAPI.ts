@@ -21,6 +21,12 @@ class RestArticleAPI {
     return data;
   };
 
+  public async getArticlesCount(): Promise<number> {
+    const { data } = await this.API.get<number>(`${this.ENDPOINT.articles}/count`);
+
+    return data;
+  };
+
   public async getArticleById(id: number) {
     const { data } = await this.API.get<IArticleAPI>(`${this.ENDPOINT.articles}/${id}`);
 
@@ -31,6 +37,12 @@ class RestArticleAPI {
     const { data } = await this.API.get<INewsAPI[]>(this.ENDPOINT.blogs, {
       params: mapToRequestParams(params),
     });
+
+    return data;
+  };
+
+  public async getNewsCount(): Promise<number> {
+    const { data } = await this.API.get<number>(`${this.ENDPOINT.blogs}/count`);
 
     return data;
   };

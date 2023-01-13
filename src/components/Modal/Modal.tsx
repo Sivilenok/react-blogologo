@@ -1,10 +1,23 @@
-import { Portal, TargetPortal } from "components/Portal/Portal";
-import { StyledModal } from "./styles";
+import { Button } from "components/Button/Button";
+import { Portal } from "components/Portal/Portal";
+import { FunctionComponent, PropsWithChildren } from "react";
+import { TargetPortal } from "types/portal";
+import { ModalContainer, ModalText, ModalWrapper } from "./styles";
 
-export const Modal = () => {
+type Props = PropsWithChildren<{
+  textButton: string;
+  onClick: () => void;
+}>
+
+export const Modal: FunctionComponent<Props> = ({ children, textButton, onClick }) => {
   return (
     <Portal target={TargetPortal.MODAL}>
-      <StyledModal />
+      <ModalWrapper>
+        <ModalContainer>
+          <ModalText>{children}</ModalText>
+          <Button onClick={onClick}>{textButton}</Button>
+        </ModalContainer>
+      </ModalWrapper>
     </Portal>
   );
 };

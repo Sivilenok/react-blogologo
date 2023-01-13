@@ -7,7 +7,7 @@ export const Label = styled.label`
   align-items: center;
   width: 35px;
   height: 20px;
-  background: ${Color.PRIMARY_TEXT};
+  background: ${Color.GRAY};
   position: relative;
   cursor: pointer;
   border-radius: 1.6rem;

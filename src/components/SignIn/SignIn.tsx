@@ -1,69 +1,95 @@
-import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router";
-import { useAppDispatch } from "store";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { setUser } from "store/slices/userSlice/userSlice";
-import { BodyForm } from "./styles";
-import { InputWrapper, Label, StyledInput } from "components/Input/styles";
+import { FunctionComponent, useCallback, useState } from "react";
+import { SubmitErrorHandler, SubmitHandler, useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+import {
+  BodyForm,
+  InputWrapper,
+  Label,
+  MessageText,
+  SignUpLink,
+  StyledInput,
+} from "./styles";
 import { Button } from "components/Button/Button";
-import { auth } from "../../firebase";
+import { Modal } from "components/Modal/Modal";
+import { ROUTE } from "router";
+import { CustomLink } from "pages/AuthPage/styles";
 
-interface ISignIn {
+const schema = yup.object({
+  email: yup.string().email().required(),
+  password: yup.string().required(),
+});
+
+export interface FormFields {
   email: string;
   password: string;
 }
 
-export const SignIn = () => {
-  const navigate = useNavigate();
-  const dispatch = useAppDispatch();
-  const {
-    register,
-    handleSubmit,
-    getValues,
-    setValue,
-    formState: { errors },
-  } = useForm({
+interface Props {
+  handleSignInUser: (userData: FormFields) => Promise<void>;
+}
+
+export const SignIn: FunctionComponent<Props> = ({ handleSignInUser }) => {
+  const [isModalOpen, setModalOpen] = useState<boolean>(false);
+  const { register, handleSubmit, setError, formState: { errors } } = useForm<FormFields>({
+    reValidateMode: "onSubmit",
+    resolver: yupResolver(schema),
     defaultValues: {
       email: "",
       password: "",
     },
   });
 
-  const handleSignIn = ({ email, password }: ISignIn) => {
-    signInWithEmailAndPassword(auth, email, password).then(({ user }) => {
-      dispatch(
-        setUser({
-          email: user.email,
-          id: user.uid,
-          name: user.displayName,
-          isAuth: true,
-        })
-      );
-      navigate("/");
-    });
-  };
+  const handleFormSubmit: SubmitHandler<FormFields> = useCallback((data) => {
+    handleSignInUser(data)
+      .catch((err) => {
+        let message: string = err;
+        if (err === "auth/user-not-found") {
+          message = "Unknown login or password.";
+        }
+
+        setError("email", { message });
+        setModalOpen(true);
+      });
+  }, [handleSignInUser, setError]);
+
+  const handleFormErrors: SubmitErrorHandler<FormFields> = useCallback(() => {
+    setModalOpen(true);
+  }, []);
 
   return (
-    <BodyForm onSubmit={handleSubmit(handleSignIn)}>
+    <BodyForm onSubmit={handleSubmit(handleFormSubmit, handleFormErrors)}>
+      {isModalOpen && (
+        <Modal onClick={() => setModalOpen(false)} textButton="OK">
+          {errors.email?.message || errors.password?.message}
+        </Modal>
+      )}
+
       <InputWrapper>
-        <Label>email</Label>
-        <StyledInput 
-          {...register("email")} 
-          name="email" 
-          type="text" 
-          placeholder="Your email" 
+        <Label>Email</Label>
+        <StyledInput
+          type="text"
+          placeholder="Your email"
+          {...register("email")}
         />
       </InputWrapper>
+
       <InputWrapper>
-        <Label>password</Label>
-        <StyledInput 
-          {...register("password")} 
-          name="password" 
-          type="password" 
-          placeholder="Your password" 
+        <Label>Password</Label>
+        <StyledInput
+          type="password"
+          placeholder="Your password"
+          {...register("password")}
         />
+        <CustomLink to={`/${ROUTE.AUTH}/${ROUTE.RESET}`}>Forgot password?</CustomLink>
         <Button type="submit">Sign In</Button>
+        <MessageText>
+          Don't have an account?
+          <SignUpLink to={`/${ROUTE.AUTH}/${ROUTE.SIGNUP}`}>Sign Up</SignUpLink>
+        </MessageText>
       </InputWrapper>
     </BodyForm>
   );
 };
+
+

@@ -3,13 +3,13 @@ import { typography } from "ui";
 import { Color } from "ui/colors";
 
 export const StyledFooter = styled.div`
-  background-color: ${Color.SECONDARY_BG};
+  background-color: ${Color.FOOTER};
   border-top: 1px solid ${Color.BORDER};
 `;
 
 export const StyledText = styled.div`
   ${typography.b2};
-  color: ${Color.PRIMARY_TEXT};
+  color: ${Color.GRAY};
   height: 24px;
 `;
 

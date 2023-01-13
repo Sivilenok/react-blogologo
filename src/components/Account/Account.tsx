@@ -3,7 +3,7 @@ import { getUser, useAppSelector } from "store";
 import { StyledAccount, StyledAccountButton } from "./styles";
 
 export const Account = () => {
-  const { name, id, isAuth, email } = useAppSelector(getUser);
+  const { name, isAuth } = useAppSelector(getUser);
 
 
   return (

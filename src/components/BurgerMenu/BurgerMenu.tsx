@@ -1,12 +1,12 @@
-import { FunctionComponent, useEffect, useState } from "react";
+import { Button } from "components/Button/Button";
 
-interface Props {
-    isOpen: boolean;
+interface IProps {
+  isOpen: () => void;
 }
 
-export const BurgerMenu: FunctionComponent<Props> = () => {
-
+export const BurgerMenu = ({isOpen}: IProps) => {
   return (
-    <button>BurgerMenu</button>
+    <Button onClick={isOpen}>
+    </Button>
   );
 };

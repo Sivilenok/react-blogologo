@@ -1,10 +1,6 @@
 import { ReactNode } from "react";
 import { createPortal } from "react-dom";
-
-export enum TargetPortal {
-    ROOT = "root",
-    MODAL = "modal",
-}
+import { TargetPortal } from "types/portal";
 
 interface IProps {
     children: ReactNode;
@@ -12,6 +8,6 @@ interface IProps {
 }
 
 export const Portal = ({ children, target }: IProps) => {
-    const container = document.getElementById(target) as HTMLElement;
-    return createPortal(children, container);
+  const container = document.getElementById(target) as HTMLElement;
+  return createPortal(children, container);
 };

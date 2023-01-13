@@ -8,32 +8,53 @@ type ResultType = IArticleAPI|INewsAPI;
 type ResultsType = Array<ResultType>;
 
 interface IArticlesState {
+  category: Category;
   results: ResultsType;
+  totalCount: number;
   isLoading: boolean;
   error: null|string;
 }
 
+export const PerPage: number = 12;
+
 export enum Category {
-    ARTICLES = "articles",
-    NEWS = "news",
+  ARTICLES = "articles",
+  NEWS = "news",
 }
 
 export enum Sort {
-    AZ = "az",
-    ZA = "za",
+  AZ = "az",
+  ZA = "za",
+}
+
+export enum Period {
+  DAY,
+  WEEK,
+  MONTH,
+  YEAR,
 }
 
 interface FetchAllOptions {
-    category: Category;
-    sort?: Sort;
+  category: Category;
+  sort?: Sort;
+  offset?: number;
+  contains?: string;
+}
+
+interface FetchAllBlogEntriesResult {
+  category: Category;
+  items: ResultsType;
+  totalCount: number;
 }
 
 // eslint-disable-next-line max-len
-export const fetchAllBlogEntries = createAsyncThunk<ResultsType, FetchAllOptions, { rejectValue: string }>(
+export const fetchAllBlogEntries = createAsyncThunk<FetchAllBlogEntriesResult, FetchAllOptions, { rejectValue: string }>(
   "blog/fetchAll",
-  ({ category, sort }, { rejectWithValue }) => {
+  ({ category, sort, offset, contains }, { rejectWithValue }) => {
     const params: ListOptions = {
-      limit: 12,
+      limit: PerPage,
+      offset,
+      contains,
     };
     switch (sort) {
       case Sort.AZ:
@@ -44,20 +65,29 @@ export const fetchAllBlogEntries = createAsyncThunk<ResultsType, FetchAllOptions
         break;
     }
 
-    let promise: Promise<ResultsType>;
+    let itemsPromise: Promise<ResultsType>;
+    let countPromise: Promise<number>;
     if (category === Category.ARTICLES) {
-      promise = articleAPI.getArticles(params);
+      itemsPromise = articleAPI.getArticles(params);
+      countPromise = articleAPI.getArticlesCount();
     } else {
-      promise = articleAPI.getNews(params);
+      itemsPromise = articleAPI.getNews(params);
+      countPromise = articleAPI.getNewsCount();
     }
 
-    return promise.catch((err: AxiosError) => rejectWithValue(err.message));
+    return Promise.all([itemsPromise, countPromise])
+      .then(([items, totalCount]) => ({
+        category,
+        items,
+        totalCount,
+      }))
+      .catch((err: AxiosError) => rejectWithValue(err.message));
   },
 );
 
 interface FetchByIdOptions {
-    category: Category;
-    id: number;
+  category: Category;
+  id: number;
 }
 
 // eslint-disable-next-line max-len
@@ -79,7 +109,9 @@ export const fetchBlogEntryById = createAsyncThunk<ResultType, FetchByIdOptions,
 );
 
 const initialState: IArticlesState = {
+  category: Category.ARTICLES,
   results: [],
+  totalCount: 0,
   isLoading: false,
   error: null,
 };
@@ -95,7 +127,9 @@ const blogSlice = createSlice({
     });
     builder.addCase(fetchAllBlogEntries.fulfilled, (state, { payload }) => {
       state.isLoading = false;
-      state.results = payload;
+      state.category = payload.category;
+      state.results = payload.items;
+      state.totalCount = payload.totalCount;
     });
     builder.addCase(fetchAllBlogEntries.rejected, (state, { payload }) => {
       if (payload) {

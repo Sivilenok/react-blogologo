@@ -4,8 +4,8 @@ import { BlogPage } from "./BlogPage/BlogPage";
 import { SearchPage } from "./SearchPage/SearchPage";
 
 export {
-    AuthPage,
-    BlogEntryPage,
-    BlogPage,
-    SearchPage,
+  AuthPage,
+  BlogEntryPage,
+  BlogPage,
+  SearchPage,
 };

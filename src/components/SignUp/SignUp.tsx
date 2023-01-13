@@ -1,55 +1,28 @@
 import { Button } from "components/Button/Button";
 import { InputWrapper, Label, StyledInput } from "components/Input/styles";
-import {
-  createUserWithEmailAndPassword,
-  updateCurrentUser,
-  updateProfile,
-} from "firebase/auth";
+import { FunctionComponent } from "react";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router";
-import { useAppDispatch } from "store";
-import { setUser } from "store/slices/userSlice/userSlice";
 import { BodyForm } from "./styles";
-import { auth } from "../../firebase";
+import { ISignUp } from "types";
+import { Modal } from "components/Modal/Modal";
 
-interface ISignUp {
-  email: string;
-  password: string;
-  name: string;
+interface IProps {
+  handleRegisterUser: (userData: ISignUp) => void;
+  handleCloseModal: () => void;
+  isOpen: boolean;
 }
 
-export const SignUp = () => {
-  const navigate = useNavigate();
-  const dispatch = useAppDispatch();
-  const handleSignIn = (userData: ISignUp) => {
-    const { email, password, name } = userData;
-    console.log(userData);
-    createUserWithEmailAndPassword(auth, email, password)
-      .then(() => {
-        dispatch(
-          setUser({
-            email: email,
-            name: name,
-            isAuth: true,
-          })
-        );
-      })
-      .then(() => {
-        const currentUser = auth.currentUser;
-        if (currentUser) {
-          updateProfile(currentUser, {
-            displayName: name,
-          });
-        }
-      });
-  };
-
+export const SignUp: FunctionComponent<IProps> = ({
+  handleRegisterUser,
+  handleCloseModal,
+  isOpen,
+}) => {
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
-  } = useForm({
+  } = useForm<ISignUp>({
     defaultValues: {
       name: "",
       email: "",
@@ -59,7 +32,12 @@ export const SignUp = () => {
   });
 
   return (
-    <BodyForm onSubmit={handleSubmit(handleSignIn)}>
+    <BodyForm onSubmit={handleSubmit(handleRegisterUser)}>
+      {isOpen && (
+        <Modal onClick={handleCloseModal} textButton="Ok">
+          User existing!
+        </Modal>
+      )}
       <InputWrapper>
         <Label>name</Label>
         <StyledInput {...register("name")} type="text" placeholder="Your name" />
@@ -75,9 +53,9 @@ export const SignUp = () => {
       <InputWrapper>
         <Label>confirm password</Label>
         <StyledInput 
-          {...register("confirmPassword")} 
+          {...register("confirmPassword")}
           type="password" 
-          placeholder="Confirm your password" 
+          placeholder="Confirm your password"
         />
       </InputWrapper>
       <Button type="submit">Sign Up</Button>

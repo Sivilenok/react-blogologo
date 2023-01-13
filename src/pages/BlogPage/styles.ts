@@ -1,29 +1,29 @@
-import styled  from "styled-components";
+import styled from "styled-components";
 import { Color } from "ui/colors";
 import { typography } from "ui";
+import { Link } from "react-router-dom";
 
-export const StyledBlog = styled.div`
+const StyledBlog = styled.div`
   ${typography.h1};
-  margin-left: 200px; 
+  margin-left: 200px;
   display: inline-block;
-
 `;
 
-export const StyledBlogButton = styled.div`
+const StyledBlogButton = styled.div`
   ${typography.h3};
-  color: ${Color.PRIMARY_TEXT};
+  color: ${Color.PRIMARY};
   text-decoration: underline;
   display: inline-block;
   margin: 50px;
   cursor: pointer;
 `;
 
-export const StyledBlogWrapper = styled.div`
+const StyledBlogWrapper = styled.div`
   display: block;
   margin: 30px;
 `;
 
-export const StyledBlogList = styled.div`
+const StyledBlogList = styled.div`
   width: fit-content;
   margin: auto;
   display: grid;
@@ -31,3 +31,36 @@ export const StyledBlogList = styled.div`
   gap: 15px;
 `;
 
+const ArticlesLink = styled(Link)`
+  color: ${Color.PRIMARY};
+`;
+
+const NewsLink = styled(Link)`
+  color: ${Color.PRIMARY};
+`;
+
+const ButtonForm = styled.button<{
+  activeColor?: boolean;
+  activeBorder: boolean;
+}>`
+  width: 50%;
+  height: 100%;
+  background: none;
+  border: none;
+  border-bottom: ${({ activeBorder }) =>
+    activeBorder ? `2px solid ${Color.PRIMARY}` : `1px solid ${Color.GRAY}`};
+  ${typography.h3};
+  color: ${({ activeColor }) => (activeColor ? Color.PRIMARY : Color.GRAY)};
+  cursor: pointer;
+  transition: all 0.3s ease;
+`;
+
+export {
+  ButtonForm,
+  StyledBlog,
+  StyledBlogButton,
+  StyledBlogWrapper,
+  StyledBlogList,
+  ArticlesLink,
+  NewsLink,
+};
