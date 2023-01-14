@@ -7,7 +7,6 @@ export * from "./ThemeButton/ThemeButton";
 export * from "./Layout/Layout";
 export * from "./Button/Button";
 export * from "./BurgerMenu/BurgerMenu";
-export * from "./ArrowButton/ArrowButton";
 export * from "./Descr/Descr";
 export * from "./Modal/Modal";
 export * from "./Portal/Portal";

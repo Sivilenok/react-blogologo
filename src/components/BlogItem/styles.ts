@@ -5,7 +5,14 @@ import { Color } from "ui/colors";
 const StyledBlogImg = styled.img`
   width: 100%;
   height: 208px;
-  background-color: black;
+  opacity: 0.3;
+  &:hover {
+    opacity: 1;
+  }
+`;
+
+const BlogImg = styled.div`
+  background-color: ${Color.PRIMARY};
 `;
 
 const StyledBlogItem = styled.div`
@@ -33,4 +40,4 @@ const StyledBlogTitle = styled.div`
   padding: 8px 0;
 `;
 
-export { StyledBlogDescr, StyledBlogTitle, StyledDate, StyledBlogItem, StyledBlogImg };
+export { StyledBlogDescr, StyledBlogTitle, StyledDate, StyledBlogItem, StyledBlogImg, BlogImg};

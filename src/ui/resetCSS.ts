@@ -1,4 +1,5 @@
 import { css } from "styled-components";
+import { Color } from "./colors";
 
 export const resetCSS = css`
   * {
@@ -42,6 +43,7 @@ export const resetCSS = css`
     -ms-text-size-adjust: 100%;
     -moz-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
+    background: ${Color.PRIMARY_BG};
   }
   blockquote,
   q {

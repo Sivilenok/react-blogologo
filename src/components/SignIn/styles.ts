@@ -16,8 +16,9 @@ const StyledInput = styled.input`
   border: 1px solid ${Color.COLOR_MAIN};
   outline: none;
   border-radius: 4px;
+  background: ${Color.SECONDARY_BG};
   &::placeholder {
-    color: ${Color.GRAY};
+    color: ${Color.TEXT};
     text-transform: capitalize;
   }
 `;
@@ -25,7 +26,7 @@ const StyledInput = styled.input`
 const Label = styled.label`
   padding-bottom: 8px;
   ${typography.s1}
-  color: ${Color.BLACK};
+  color: ${Color.PRIMARY_TEXT};
 `;
 
 const InputWrapper = styled.div`
@@ -35,7 +36,7 @@ const InputWrapper = styled.div`
 
 const MessageText = styled.div`
   text-align: center;
-  color: ${Color.GRAY};
+  color: ${Color.TEXT};
   margin: 24px 0 0;
 `;
 

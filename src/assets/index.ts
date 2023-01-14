@@ -4,14 +4,6 @@ import { ReactComponent as LogoIcon } from "./icon/logo.svg";
 import { ReactComponent as SearchIcon } from "./icon/search.svg";
 import { ReactComponent as UserIcon } from "./icon/user.svg";
 import { ReactComponent as VectorIcon } from "./icon/vector.svg";
-import { 
-  StyledBlogIcon,
-  StyledCrossIcon,
-  StyledLogoIcon,
-  StyledSearchIcon,
-  StyledUserIcon,
-  StyledVectorIcon,
-} from "./styles"
 
 export {
   BlogIcon,

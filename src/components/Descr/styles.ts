@@ -10,7 +10,7 @@ const StyledDescrImg = styled.img`
 const StyledDescrText = styled.div`
   width: 920px;
   ${typography.b1};
-  color: ${Color.SECONDARY};
+  color: ${Color.TEXT};
 `;
 
 const StyledDescrWrapper = styled.div`

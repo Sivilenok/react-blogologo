@@ -1,9 +1,8 @@
-import { StyledBlogIcon } from "assets/styles";
 import BlogItem from "components/BlogItem/BlogItem";
 import { DateButtons } from "components/DateButtons/DateButtons";
 import { FunctionComponent, useCallback, useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
-import Select, { components } from "react-select";
+import Select, { components, NonceProvider } from "react-select";
 import { getBlog, useAppDispatch, useAppSelector } from "store";
 import {
   Category,
@@ -16,6 +15,7 @@ import {
   NewsLink,
   StyledBlog,
   StyledBlogButton,
+  StyledBlogHeader,
   StyledBlogList,
   StyledBlogWrapper,
 } from "./styles";
@@ -47,12 +47,12 @@ export const BlogPage: FunctionComponent<Props> = ({ category }) => {
 
   return (
     <StyledBlog>
-      <StyledBlogIcon />
+      <StyledBlogHeader>Blog</StyledBlogHeader>
       <StyledBlogWrapper>
-        <StyledBlogButton>
+        <StyledBlogButton active={category === Category.ARTICLES}>
           <ArticlesLink to={`/${Category.ARTICLES}`}>Articles</ArticlesLink>
         </StyledBlogButton>
-        <StyledBlogButton>
+        <StyledBlogButton active={category === Category.NEWS}>
           <NewsLink to={`/${Category.NEWS}`}>News</NewsLink>
         </StyledBlogButton>
         <StyledBlogWrapper>
@@ -88,11 +88,13 @@ export const BlogPage: FunctionComponent<Props> = ({ category }) => {
                   lineHeight: "24px",
                   fontSize: "16px",
                   fontWeight: 500,
+                  background: Color.SECONDARY_BG,
                 }),
                 indicatorsContainer: (styles) => ({
                   ...styles,
                   height: "56px",
                   fontSize: "16px",
+                  color: Color.SELECT,
                 }),
                 input: (styles) => ({
                   ...styles,
@@ -100,14 +102,14 @@ export const BlogPage: FunctionComponent<Props> = ({ category }) => {
                 }),
                 singleValue: (styles) => ({
                   ...styles,
-                  color: Color.PRIMARY,
+                  color: Color.SELECT,
                 }),
               }}
               components={{
                 SingleValue: ({ children, ...props }) => {
                   return (
                     <components.SingleValue {...props} >
-                      <span style={{ color: "#31303780" }}>Sort: </span>
+                      <span style={{ color: Color.TEXT}}>Sort: </span>
                       {children}
                     </components.SingleValue>
                   );

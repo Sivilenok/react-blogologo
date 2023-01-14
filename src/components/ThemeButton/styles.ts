@@ -33,7 +33,7 @@ export const Label = styled.label`
 `;
 
 export const StyledText = styled.div`
-  color: ${Color.PRIMARY_TEXT};
+  color: ${Color.TEXT};
   ${typography.b1}
 `;
 

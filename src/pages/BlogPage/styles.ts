@@ -3,19 +3,26 @@ import { Color } from "ui/colors";
 import { typography } from "ui";
 import { Link } from "react-router-dom";
 
+const StyledBlogHeader = styled.h1`
+  margin: 70px;
+  color: ${Color.SELECT};
+  ${typography.h1};
+`;
+
 const StyledBlog = styled.div`
   ${typography.h1};
   margin-left: 200px;
   display: inline-block;
 `;
 
-const StyledBlogButton = styled.div`
+const StyledBlogButton = styled.div<{active: boolean}>`
   ${typography.h3};
-  color: ${Color.PRIMARY};
-  text-decoration: underline;
   display: inline-block;
   margin: 50px;
   cursor: pointer;
+  padding: 40px 40px 24px 40px;
+  border-bottom: ${({ active }) =>
+  active ? `2px solid ${Color.SELECT}` : `2px solid ${Color.BORDER}`};
 `;
 
 const StyledBlogWrapper = styled.div`
@@ -32,11 +39,13 @@ const StyledBlogList = styled.div`
 `;
 
 const ArticlesLink = styled(Link)`
-  color: ${Color.PRIMARY};
+  color: ${Color.SELECT};
+
 `;
 
 const NewsLink = styled(Link)`
-  color: ${Color.PRIMARY};
+  color: ${Color.SELECT};
+
 `;
 
 const ButtonForm = styled.button<{
@@ -63,4 +72,5 @@ export {
   StyledBlogList,
   ArticlesLink,
   NewsLink,
+  StyledBlogHeader
 };

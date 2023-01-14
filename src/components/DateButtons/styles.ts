@@ -4,8 +4,8 @@ import { Color } from "ui/colors";
 
 const StyledDateButton = styled.button<{active: boolean}>`
   ${typography.h3};
-  color: ${(props) => props.active ? Color.WHITE : Color.PRIMARY };
-  background-color: ${(props) => props.active ? Color.PRIMARY : Color.COLOR_MAIN};
+  color: ${(props) => props.active ? Color.WHITE : Color.SELECT };
+  background-color: ${(props) => props.active ? Color.SELECT : Color.BTN};
   margin: 10px;
   width: 123px;
   height: 56px;

@@ -11,13 +11,13 @@ const StyledAuthPage = styled.div`
 const StyledAuth = styled.div`
   width: 544px;
   margin-bottom: 100px;
-  background: ${Color.WHITE};
+  background: ${Color.SECONDARY_BG};
   border-radius: 16px;
   border: none;
 `;
 
 const CustomLink = styled(Link)`
-  color: ${Color.BLACK};
+  color: ${Color.TEXT};
   margin: 16px 0 48px;
 `;
 

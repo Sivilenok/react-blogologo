@@ -1,10 +1,13 @@
-import { Button } from "components/Button/Button";
-import { InputWrapper, Label, StyledInput } from "components/Input/styles";
 import { FunctionComponent } from "react";
 import { useForm } from "react-hook-form";
-import { BodyForm } from "./styles";
 import { ISignUp } from "types";
 import { Modal } from "components/Modal/Modal";
+import { Button, Label } from "./styles";
+import {
+  BodyForm,
+  InputWrapper,
+  StyledInput,
+} from "../SignIn/styles";
 
 interface IProps {
   handleRegisterUser: (userData: ISignUp) => void;
@@ -19,9 +22,7 @@ export const SignUp: FunctionComponent<IProps> = ({
 }) => {
   const {
     register,
-    handleSubmit,
-    watch,
-    formState: { errors },
+    handleSubmit
   } = useForm<ISignUp>({
     defaultValues: {
       name: "",
@@ -39,19 +40,19 @@ export const SignUp: FunctionComponent<IProps> = ({
         </Modal>
       )}
       <InputWrapper>
-        <Label>name</Label>
+        <Label>Name</Label>
         <StyledInput {...register("name")} type="text" placeholder="Your name" />
       </InputWrapper>
       <InputWrapper>
-        <Label>email</Label>
+        <Label>Email</Label>
         <StyledInput {...register("email")} type="text" placeholder="Your email" />
       </InputWrapper>
       <InputWrapper>
-        <Label>password</Label>
+        <Label>Password</Label>
         <StyledInput {...register("password")} type="password" placeholder="Your password" />
       </InputWrapper>
       <InputWrapper>
-        <Label>confirm password</Label>
+        <Label>Confirm password</Label>
         <StyledInput 
           {...register("confirmPassword")}
           type="password" 

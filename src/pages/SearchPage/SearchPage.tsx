@@ -1,11 +1,11 @@
 import { FunctionComponent, useEffect } from "react";
-import { StyledBlogIcon } from "assets/styles";
 import BlogItem from "components/BlogItem/BlogItem";
 import { useParams } from "react-router";
 import { getBlog, useAppDispatch, useAppSelector } from "store";
 import { Category, fetchAllBlogEntries } from "store/slices/blogSlice/blogSlice";
 import {
   StyledBlog,
+  StyledBlogHeader,
   StyledBlogList,
   StyledBlogWrapper,
 } from "pages/BlogPage/styles";
@@ -26,7 +26,7 @@ export const SearchPage: FunctionComponent<Props> = ({ category }) => {
 
   return (
     <StyledBlog>
-      <StyledBlogIcon />
+      <StyledBlogHeader>Blog</StyledBlogHeader>
       <StyledBlogWrapper>
         <StyledBlogList>
           {isLoading ? (

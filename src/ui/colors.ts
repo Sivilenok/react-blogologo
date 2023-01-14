@@ -12,4 +12,7 @@ export enum Color {
     BORDER = "var(--border)",
     FOOTER = "#F3F3F3",
     COLOR_MAIN = "rgba(49, 48, 55, 0.1)",
+    TEXT = "var(--text)",
+    BTN = "var(--secondary-btn)",
+    SELECT = "var(--select)",
 }

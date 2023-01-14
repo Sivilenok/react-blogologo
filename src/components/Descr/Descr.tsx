@@ -1,4 +1,3 @@
-import { ArrowButton } from "components/ArrowButton/ArrowButton";
 import { FunctionComponent } from "react";
 import { useNavigate } from "react-router";
 import { IArticleAPI, INewsAPI } from "types/types";
@@ -16,9 +15,6 @@ interface Props {
 
 export const Descr: FunctionComponent<Props> = ({ item }) => {
   const navigate = useNavigate();
-  const handleBack = () => {
-    navigate(-1);
-  };
   const { title, imageUrl, summary } = item;
 
   return (
@@ -28,7 +24,6 @@ export const Descr: FunctionComponent<Props> = ({ item }) => {
         <StyledDescrImg src={imageUrl} />
       </StyledDescr>
       <StyledDescrText>{summary}</StyledDescrText>
-      <ArrowButton />
     </StyledDescrWrapper>
   );
 };

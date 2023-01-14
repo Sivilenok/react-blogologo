@@ -1,18 +1,11 @@
 import styled from "styled-components";
 import {
-  BlogIcon,
   CrossIcon,
   LogoIcon,
   SearchIcon,
   UserIcon,
   VectorIcon,
 } from "assets";
-
-const StyledBlogIcon = styled(BlogIcon)`
-  width: 123px;
-  height: 80px;
-  margin: 100px;
-`;
 
 const StyledCrossIcon = styled(CrossIcon)`
 `;
@@ -36,7 +29,6 @@ const StyledVectorIcon = styled(VectorIcon)`
 `;
 
 export {
-  StyledBlogIcon,
   StyledCrossIcon,
   StyledLogoIcon,
   StyledSearchIcon,
