@@ -1,5 +1,6 @@
 import { Descr } from "components/Descr/Descr";
 import { FunctionComponent, useEffect, useState } from "react";
+import { Carousel } from "react-responsive-carousel";
 import { useParams } from "react-router";
 import { useAppDispatch } from "store";
 import { Category, fetchBlogEntryById } from "store/slices/blogSlice/blogSlice";
@@ -27,6 +28,12 @@ export const BlogEntryPage: FunctionComponent<Props> = ({ category }) => {
   }
 
   return (
-    <Descr item={entry}/>
+    <div>
+      <Descr item={entry} />
+      <Carousel>
+
+      </Carousel>
+
+    </div>
   );
 };

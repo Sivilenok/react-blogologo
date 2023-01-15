@@ -5,6 +5,7 @@ import { Color } from "ui/colors";
 export const StyledFooter = styled.div`
   background-color: ${Color.PRIMARY_BG};
   border-top: 1px solid ${Color.BORDER};
+  margin-top: 50px;
 `;
 
 export const StyledText = styled.div`

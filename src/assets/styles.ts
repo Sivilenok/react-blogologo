@@ -2,13 +2,15 @@ import styled from "styled-components";
 import {
   CrossIcon,
   LogoIcon,
+  Next,
+  Prev,
   SearchIcon,
   UserIcon,
   VectorIcon,
 } from "assets";
+import { Color } from "ui/colors";
 
-const StyledCrossIcon = styled(CrossIcon)`
-`;
+const StyledCrossIcon = styled(CrossIcon)``;
 
 const StyledLogoIcon = styled(LogoIcon)`
   width: 137px;
@@ -28,10 +30,26 @@ const StyledVectorIcon = styled(VectorIcon)`
   width: 48px;
 `;
 
+const StyledNext = styled(Next)`
+  cursor: pointer;
+  & path:hover {
+    fill: ${Color.PRIMARY};
+  }
+`;
+
+const StyledPrev = styled(Prev)`
+  cursor: pointer;
+  & path:hover {
+    fill: ${Color.SELECT};
+  }
+`;
+
 export {
-  StyledCrossIcon,
   StyledLogoIcon,
   StyledSearchIcon,
   StyledUserIcon,
   StyledVectorIcon,
+  StyledNext,
+  StyledPrev,
+  StyledCrossIcon,
 };

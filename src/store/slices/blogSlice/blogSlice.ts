@@ -93,7 +93,7 @@ interface FetchByIdOptions {
 // eslint-disable-next-line max-len
 export const fetchBlogEntryById = createAsyncThunk<ResultType, FetchByIdOptions, { state: RootState, rejectValue: string }>(
   "blogs/fetchSingle",
-  ({ category, id }, { getState, rejectWithValue }) => {
+  ({ category, id }, { getState }) => {
     const state = getState();
     const entry = state.blog.results.find((item) => item.id === id);
     if (entry) {

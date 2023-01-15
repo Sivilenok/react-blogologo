@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Color } from "ui/colors";
 import { typography } from "ui";
 import { Link } from "react-router-dom";
+import ReactPaginate from "react-paginate";
 
 const StyledBlogHeader = styled.h1`
   margin: 70px;
@@ -40,12 +41,10 @@ const StyledBlogList = styled.div`
 
 const ArticlesLink = styled(Link)`
   color: ${Color.SELECT};
-
 `;
 
 const NewsLink = styled(Link)`
   color: ${Color.SELECT};
-
 `;
 
 const ButtonForm = styled.button<{
@@ -64,6 +63,37 @@ const ButtonForm = styled.button<{
   transition: all 0.3s ease;
 `;
 
+const StyledReactPaginate = styled(ReactPaginate)`
+  display: flex;
+  justify-content: center;
+  color: ${Color.PRIMARY_TEXT};
+  cursor: pointer;
+  gap: 32px;
+  ${typography.s1}
+  .pagination {
+    &__active {
+      color: ${Color.PRIMARY};
+    }
+
+    &__previous {
+      color: ${Color.SELECT};
+      cursor: pointer;
+      margin-left: 100px;
+      justify-items: flex-start;
+    }
+
+    &__next {
+      color: ${Color.SELECT};
+      cursor: pointer;
+    }
+
+    &__disabled {
+     color: ${Color.TEXT};
+     margin-left: 50px;
+    }
+  }
+`;
+
 export {
   ButtonForm,
   StyledBlog,
@@ -72,5 +102,6 @@ export {
   StyledBlogList,
   ArticlesLink,
   NewsLink,
-  StyledBlogHeader
+  StyledBlogHeader,
+  StyledReactPaginate
 };

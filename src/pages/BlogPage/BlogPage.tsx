@@ -1,7 +1,7 @@
+import { StyledNext, StyledPrev } from "assets/styles";
 import BlogItem from "components/BlogItem/BlogItem";
 import { DateButtons } from "components/DateButtons/DateButtons";
 import { FunctionComponent, useCallback, useEffect, useState } from "react";
-import ReactPaginate from "react-paginate";
 import Select, { components, NonceProvider } from "react-select";
 import { getBlog, useAppDispatch, useAppSelector } from "store";
 import {
@@ -18,6 +18,7 @@ import {
   StyledBlogHeader,
   StyledBlogList,
   StyledBlogWrapper,
+  StyledReactPaginate,
 } from "./styles";
 
 const sortOptions: Array<{ value: Sort; label: string }> = [
@@ -132,11 +133,22 @@ export const BlogPage: FunctionComponent<Props> = ({ category }) => {
               />
             ))
           )}
-          <ReactPaginate 
+        </StyledBlogList>
+        <StyledReactPaginate
+            breakLabel="..."
+            containerClassName="paginaton__container"
+            breakClassName="paginaton__break"
+            pageClassName="paginaton__page"
+            activeClassName="paginaton__active"
+            previousClassName="paginaton__previous"
+            nextClassName="paginaton__next"
+            disabledClassName="paginaton__disabled"
+            className="paginaton"
+            nextLabel={<StyledNext />}
+            previousLabel={<StyledPrev />}
             pageCount={Math.ceil(totalCount / PerPage)}
             onPageChange={handlePageChange}
           />
-        </StyledBlogList>
       </StyledBlogWrapper>
     </StyledBlog>
   );

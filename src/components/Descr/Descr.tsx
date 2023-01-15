@@ -1,5 +1,4 @@
 import { FunctionComponent } from "react";
-import { useNavigate } from "react-router";
 import { IArticleAPI, INewsAPI } from "types/types";
 import {
   StyledDescr,
@@ -14,7 +13,6 @@ interface Props {
 }
 
 export const Descr: FunctionComponent<Props> = ({ item }) => {
-  const navigate = useNavigate();
   const { title, imageUrl, summary } = item;
 
   return (
