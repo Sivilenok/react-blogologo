@@ -37,10 +37,28 @@ const StyledDescrTitle = styled.div`
   width: 1120px;
 `;
 
+const LinkButton = styled.button`
+  background-color: ${Color.TEXT};
+  width: 180px;
+  text-align: center;
+  margin: auto;
+  padding: 15px;
+  border-radius: 20px;
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
+const Link = styled.a`
+  ${typography.b2};
+  color: ${Color.SELECT};
+`;
+
 export {
   StyledDescrImg,
   StyledDescrText,
   StyledDescrWrapper,
   StyledDescr,
   StyledDescrTitle,
+  LinkButton, Link
 };

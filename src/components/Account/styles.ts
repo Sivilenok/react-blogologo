@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { typography } from "ui";
 import { Color } from "ui/colors";
 
 const StyledAccount = styled.div`
@@ -19,6 +20,8 @@ const StyledButton = styled.div`
 const StyledSpan = styled.span`
   width: max-content;
   padding-left: 16px;
+  ${typography.s1};
+  color: ${Color.PRIMARY_TEXT};
 `;
 
 const StyledAccountButton = styled.button`
@@ -31,7 +34,7 @@ const StyledAccountButton = styled.button`
 const StyledUserIcon = styled.span`
   && { 
     white-space: nowrap;
-    padding: 0 20px;
+    padding: 10px 20px;
   }
 `;
 

@@ -12,10 +12,11 @@ export const StyledText = styled.div`
   ${typography.b2};
   color: ${Color.TEXT};
   height: 24px;
+  
 `;
 
 export const StyledWrapper = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   padding: 33px 0;
 `;

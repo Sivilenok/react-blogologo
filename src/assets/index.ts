@@ -6,6 +6,7 @@ import { ReactComponent as UserIcon } from "./icon/user.svg";
 import { ReactComponent as VectorIcon } from "./icon/vector.svg";
 import { ReactComponent as  Next } from "./icon/next.svg";
 import { ReactComponent as  Prev } from "./icon/prev.svg";
+import { ReactComponent as  BurgerMenuIcon } from "./icon/burger-menu.svg";
 
 export {
   BlogIcon,
@@ -15,4 +16,5 @@ export {
   UserIcon,
   VectorIcon,
   Next, Prev,
+  BurgerMenuIcon
 };

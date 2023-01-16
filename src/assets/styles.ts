@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import {
+  BurgerMenuIcon,
   CrossIcon,
   LogoIcon,
   Next,
@@ -9,6 +10,7 @@ import {
   VectorIcon,
 } from "assets";
 import { Color } from "ui/colors";
+import { BurgerMenu } from "components";
 
 const StyledCrossIcon = styled(CrossIcon)``;
 
@@ -24,6 +26,7 @@ const StyledSearchIcon = styled(SearchIcon)`
 
 const StyledUserIcon = styled(UserIcon)`
   width: 48px;
+  margin: 0 10px;
 `;
 
 const StyledVectorIcon = styled(VectorIcon)`
@@ -44,6 +47,12 @@ const StyledPrev = styled(Prev)`
   }
 `;
 
+const StyledBurgerMenuIcon = styled(BurgerMenuIcon)`
+  & path {
+    fill: ${Color.BTN};
+  }
+`;
+
 export {
   StyledLogoIcon,
   StyledSearchIcon,
@@ -52,4 +61,5 @@ export {
   StyledNext,
   StyledPrev,
   StyledCrossIcon,
+  StyledBurgerMenuIcon
 };

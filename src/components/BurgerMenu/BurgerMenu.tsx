@@ -1,12 +1,21 @@
-import { Button } from "components/Button/Button";
+import { StyledBurgerMenuIcon, StyledCrossIcon } from "assets/styles";
+import { useLayoutEffect } from "react";
+import { BurgerButton } from "./styles";
 
 interface IProps {
-  isOpen: () => void;
+  isOpen: boolean;
+  toggleOpenMenu: () => void;
+  blockBody: (arg: boolean) => void;
 }
 
-export const BurgerMenu = ({isOpen}: IProps) => {
+export const BurgerMenu = ({ isOpen, toggleOpenMenu, blockBody }: IProps)  => {
+  useLayoutEffect(() => {
+    blockBody(isOpen);
+  });
+
   return (
-    <Button onClick={isOpen}>
-    </Button>
+    <BurgerButton onClick={toggleOpenMenu}>
+      {isOpen ? <StyledCrossIcon /> : <StyledBurgerMenuIcon />}
+    </BurgerButton>
   );
 };

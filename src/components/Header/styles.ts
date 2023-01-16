@@ -25,9 +25,13 @@ const StyledIconWrapper = styled.div`
   right: 25px;
 `;
 
+const HeaderWrapper = styled.div`
+`;
+
 
 export {
   StyledHeader,
   StyledSearchWrapper,
   StyledIconWrapper,
+  HeaderWrapper 
 };
