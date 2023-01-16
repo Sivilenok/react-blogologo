@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.js": "/react-blogologo/static/js/main.185e83ae.js",
+    "static/media/logo.svg": "/react-blogologo/static/media/logo.12b7b8562ff9d9f11892d5338ef00ebc.svg",
+    "static/media/blog.svg": "/react-blogologo/static/media/blog.ddd99e55cf70638db9d4917ede34148c.svg",
+    "static/media/prev.svg": "/react-blogologo/static/media/prev.3eaf91c9a3938a8a5f99b6f984109245.svg",
+    "static/media/next.svg": "/react-blogologo/static/media/next.8b0fa942951b3d5cb026635ee9a0c31d.svg",
+    "static/media/user.svg": "/react-blogologo/static/media/user.5a46bb3ab6ae548cebb41ffbd731ad5f.svg",
+    "static/media/cross-icon.svg": "/react-blogologo/static/media/cross-icon.5e3a8b826e48de8d22ae660d3ca06f76.svg",
+    "static/media/search.svg": "/react-blogologo/static/media/search.0c935ae4c8eceddeb70180417510d0a7.svg",
+    "index.html": "/react-blogologo/index.html",
+    "static/media/burger-menu.svg": "/react-blogologo/static/media/burger-menu.e8b6d9a2dec556c5e36418de669613e9.svg",
+    "static/media/vector.svg": "/react-blogologo/static/media/vector.16d134a8b88be468b232cbac30a6d13c.svg",
+    "main.185e83ae.js.map": "/react-blogologo/static/js/main.185e83ae.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.185e83ae.js"
+  ]
+}
